@@ -31,7 +31,3 @@ class CompileCommandTests(TestCase):
         self.assertEqual(len(command.environment.finders), 1)
         self.assertEqual(len(command.environment.finders[0].locations), 1)
         self.assertPathsEqual(command.environment.finders[0].locations[0], 'assets')
-
-    def test_it_compiles_assets_when_runned(self):
-        self.get_command('compile assets static').run()
-        self.save_mock.assert_called_once_with()

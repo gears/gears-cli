@@ -1,6 +1,8 @@
 import os
 
+from gears.assets import build_asset
 from gears.environment import Environment
+from gears.exceptions import FileNotFound
 from gears.finders import FileSystemFinder
 
 
@@ -20,7 +22,15 @@ class CompileCommand(object):
         self.environment.register_defaults()
 
     def run(self):
-        self.environment.save()
+        for path in self.environment.public_assets:
+            try:
+                asset = build_asset(self.environment, path)
+            except FileNotFound:
+                continue
+            self.environment.save_file(path, str(asset))
+            source_path = os.path.relpath(asset.absolute_path)
+            output_path = os.path.relpath(os.path.join(self.environment.root, path))
+            print('- compiled %s to %s' % (source_path, output_path))
 
 
 def compile(parser, args):
