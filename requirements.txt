@@ -1,0 +1,5 @@
+mock
+nose
+unittest2
+
+-e .
