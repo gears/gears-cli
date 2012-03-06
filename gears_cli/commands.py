@@ -31,10 +31,3 @@ class CompileCommand(object):
             source_path = os.path.relpath(asset.absolute_path)
             output_path = os.path.relpath(os.path.join(self.environment.root, path))
             print('- compiled %s to %s' % (source_path, output_path))
-
-
-def compile(parser, args):
-    environment = Environment(get_absolute_path(args.output))
-    environment.finders.register(FileSystemFinder([get_absolute_path(args.source)]))
-    environment.register_defaults()
-    environment.save()
