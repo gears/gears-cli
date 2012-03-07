@@ -1,3 +1,6 @@
+from clint.textui import puts
+from clint.textui import colored
+
 from watchdog.events import FileSystemEventHandler
 
 
@@ -7,6 +10,6 @@ class WatchEventHandler(FileSystemEventHandler):
         self.callback = callback
 
     def on_modified(self, event):
-        print('')
-        print('assets modified, recompiling...')
+        puts()
+        puts(colored.yellow('assets modified, recompiling...'))
         self.callback()

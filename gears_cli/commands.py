@@ -1,6 +1,9 @@
 import os
 import time
 
+from clint.textui import colored
+from clint.textui import puts
+
 from gears.assets import build_asset
 from gears.environment import Environment
 from gears.exceptions import FileNotFound
@@ -34,7 +37,7 @@ class BaseCommand(object):
             self.environment.save_file(path, str(asset))
             source_path = os.path.relpath(asset.absolute_path)
             output_path = os.path.relpath(os.path.join(self.environment.root, path))
-            print('- compiled %s to %s' % (source_path, output_path))
+            puts(colored.green('- compiled %s to %s' % (source_path, output_path)))
 
 
 class CompileCommand(BaseCommand):
