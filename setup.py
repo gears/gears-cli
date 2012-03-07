@@ -7,7 +7,7 @@ def read(filename):
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 
-requirements = ['Gears']
+requirements = ['Gears', 'watchdog']
 if sys.version_info < (2, 7):
     requirements.append('argparse')
 
