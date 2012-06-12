@@ -18,7 +18,7 @@ setup(
     license='ISC',
     description='Command-line tools for Gears.',
     long_description=read('README.rst'),
-    url='https://github.com/trilan/gears-cli',
+    url='https://github.com/gears/gears-cli',
     author='Mike Yumatov',
     author_email='mike@yumatov.org',
     packages=find_packages(),

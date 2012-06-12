@@ -1,7 +1,7 @@
 Gears CLI
 =========
 
-.. image:: https://secure.travis-ci.org/trilan/gears-cli.png?branch=develop
+.. image:: https://secure.travis-ci.org/gears/gears-cli.png?branch=develop
 
 Command-line tools for `Gears`_.
 
